@@ -12,7 +12,7 @@ const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
+  useEffect(() => {    
     checkUserAuth(dispatch, navigate);
   }, [dispatch, navigate]);
 

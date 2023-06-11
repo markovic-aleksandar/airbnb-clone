@@ -14,6 +14,16 @@ export const handleErrorMessage = message => {
       return 'The provided password is incorrect';
     case 'auth/user-not-found':
       return 'There is no user corresponding to the given email address';
+    case 'storage/unknown':
+      return 'An unknown error occurred';
+    case 'storage/project-not-found':
+      return 'The requested project does not exist';
+    case 'storage/unauthenticated':
+      return 'The user is not authenticated. Sign in and try again';
+    case 'storage/unauthorized':
+      return 'The user does not have the necessary permissions to access the requested resource';
+    case 'storage/canceled':
+      return 'The operation was canceled by the user';
     default:
       return message;
   }

@@ -6,7 +6,11 @@ const useValidate = initData => {
   // handle data value
   const handleDataValue = e => {
     const name = e.target.name;
-    const value = e.target.value;
+    let value = e.target.value;
+
+    if (name === 'avatar') {
+      value = e.target.files[0];      
+    }
 
     setData(prevData =>  ({...prevData, [name]: {...prevData[name], value}}));
   }
@@ -19,6 +23,22 @@ const useValidate = initData => {
 
     for (const item in data) {
       const dataItem = data[item];
+
+      // check if item is avatar
+      if (item === 'avatar') {
+
+        // check if value is false
+        if (!dataItem.value) {
+          errors ++;
+          tempData[item] = {...dataItem, error: false};
+        } else if (!['image/png', 'image/jpg', 'image/jpeg'].includes(dataItem.value.type)) { // check for file type
+          tempData[item] = {...dataItem, error: 'Invalid image format (Allowed: jpg, jpeg, png)'};
+          errors ++;
+        } else {
+          tempData[item] = {...dataItem, error: false};
+        }
+        break;
+      }
 
       // check empty value
       if (!dataItem.value.trim()) {

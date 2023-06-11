@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOutUser, openSignUpModal, openSignInModal } from '../../redux/features/auth/authActions';
 import { HiBars3 } from 'react-icons/hi2';
@@ -9,6 +9,7 @@ const HeaderUser = () => {
   const [dropdownMenu, setDropdownMenu] = useState(false);
   const {currentUser} = useSelector(store => store.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleToggleDropdownMenu = () => {
     setDropdownMenu(!dropdownMenu);
@@ -29,14 +30,14 @@ const HeaderUser = () => {
       <button
         type="button"
         data-target="dropdown-menu"
-        className="flex items-center gap-[11px] h-[42px] p-[5px] pl-3 border-[1px] border-[#ddd] rounded-full"
+        className="flex items-center gap-[11px] h-[42px] p-[0_5px_0_10px] border-[1px] border-[#ddd] rounded-full"
         onClick={handleToggleDropdownMenu}
       >
         <HiBars3 className="w-[17px] h-[17px]" />
         {!currentUser || !currentUser.avatar ? (
           <UserAvatar w={30} h={30} /> 
         ) : (
-          <img src="proba" alt="" />
+          <img src={currentUser.avatar} alt="user avatar" className="w-[30px] h-[30px] object-cover rounded-full" />
         )}
       </button>
 
@@ -80,7 +81,7 @@ const HeaderUser = () => {
             </li>
             <li
               className="w-full px-4 py-[10px] mt-1 cursor-pointer hover:bg-[#f7f7f7]"
-              onClick={() => signOutUser(dispatch)}
+              onClick={() => signOutUser(dispatch, navigate)}
             >Log out</li>
           </>
         )}

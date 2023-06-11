@@ -20,12 +20,12 @@ body {
   background: #fff;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   line-height: 1.3;
   font-weight: 500;
 }
 
-input {
+input, textarea {
   display: block;
   width: 100%;
   height: 100%;
@@ -33,6 +33,10 @@ input {
   padding: 0 16px;
   border-radius: 8px;
   outline: none;
+}
+
+textarea {
+  padding: 10px;
 }
 
 .form-control {
@@ -100,6 +104,31 @@ input {
   animation: fadeOut 500ms ease-in-out;
 }
 
+.loader-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.loader {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #FF385C;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -121,3 +150,12 @@ input {
     transform: translateY(200px);
   }
 }
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+} 

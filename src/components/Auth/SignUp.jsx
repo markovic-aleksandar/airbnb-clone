@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { closeSignUpModal, signUpUser } from '../../redux/features/auth/authActions';
 import useValidate from '../../hooks/useValidate';
-import { InputErrorIcon } from '../../constants/icons';
 import Modal from '../Modal';
+import MiniLoader from '../MiniLoader';
+import { InputErrorIcon } from '../../constants/icons';
 import { FcGoogle } from 'react-icons/fc';
 
 const SignUp = () => {
@@ -12,6 +14,7 @@ const SignUp = () => {
     email: {value: '', error: false},
     password: {value: '', error: false}
   });
+  const [waitingProccess, setWaitingProccess] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,7 +24,7 @@ const SignUp = () => {
 
   const handleSignUpUser = () => {
     validateData(() => {
-      signUpUser(inputData, dispatch, navigate);
+      signUpUser(inputData, dispatch, navigate, setWaitingProccess);
     });
   }
 
@@ -84,12 +87,21 @@ const SignUp = () => {
           )}
         </div>
 
-        <button 
-          type="button"
-          className="w-full h-12 text-center bg-buttonGradient text-white font-medium rounded-lg"        
-          onClick={handleSignUpUser}
-        >
-          Continue</button>
+          {!waitingProccess ? (
+          <button 
+            type="button"
+            className="w-full h-12 text-center bg-buttonGradient text-white font-medium rounded-lg"
+            onClick={handleSignUpUser}
+          >
+            Continue</button>
+        ) : (
+          <button 
+            type="button"
+            className="relative w-full h-12 text-center bg-buttonGradient text-white font-medium rounded-lg pointer-events-none"
+          >
+            <MiniLoader color="#fff" />
+          </button>
+          )}
       </form>
           
       <div className="flex items-center gap-5 my-5">
