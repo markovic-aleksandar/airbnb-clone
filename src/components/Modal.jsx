@@ -23,7 +23,7 @@ const Modal = ({children, title, closeModal}) => {
           >
             <IoCloseOutline className="text-[22px]" />
           </button>
-          {title && <h3 className="text-center text-base font-medium">{title}</h3>}
+          {title && <h3 className="text-center font-medium">{title}</h3>}
         </div>
         {children}
       </div>

@@ -1,3 +1,4 @@
+import { COLORS } from '../../constants';
 import { BiSearch } from 'react-icons/bi';
 
 const HeaderSearch = () => {
@@ -17,7 +18,8 @@ const HeaderSearch = () => {
       >Add guests</button>
       <button 
         type="button"
-        className="flex items-center justify-center w-8 h-8 rounded-full bg-[#ff385c]"  
+        style={{background: COLORS.mainClr}}
+        className="flex items-center justify-center w-8 h-8 rounded-full"  
       >
         <BiSearch className="text-white" />
       </button>

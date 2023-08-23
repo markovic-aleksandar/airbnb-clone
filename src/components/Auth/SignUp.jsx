@@ -6,7 +6,7 @@ import { signUpUser } from '../../functions/authFunctions';
 import useValidate from '../../hooks/useValidate';
 import Modal from '../Modal';
 import MiniLoader from '../MiniLoader';
-import { InputErrorIcon } from '../../constants/icons';
+import { COLORS, InputErrorIcon } from '../../constants';
 import { FcGoogle } from 'react-icons/fc';
 
 const SignUp = () => {
@@ -32,7 +32,7 @@ const SignUp = () => {
   return (
     <Modal title="Sign Up" closeModal={closeModal}>
       <form className="pt-6" noValidate>
-        <h2 className="text-xl md:text-2xl mb-5">Welcome to Airbnb</h2>
+        <h2 className="mb-5">Welcome to Airbnb</h2>
         <div className="form-group">
           <div className="form-control">
             <input 
@@ -114,7 +114,8 @@ const SignUp = () => {
       <div>
         <button 
           type="button"
-          className="relative w-full py-3 font-medium border border-black rounded-lg"  
+          style={{borderColor: COLORS.darkClr}}
+          className="relative w-full py-3 font-medium border rounded-lg"  
         >
           <FcGoogle className="absolute top-[50%] left-4 translate-y-[-50%] text-[22px]" />
           Continue with Google

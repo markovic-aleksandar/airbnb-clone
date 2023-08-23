@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LikeIcon } from '../../constants/icons';
+import { LikeIcon } from '../../constants';
 
 const Listing = ({images, title, location: {country, city}, regularPrice}) => {
   const [imageLoaded, setImageLoaded] = useState(true);
@@ -21,7 +21,7 @@ const Listing = ({images, title, location: {country, city}, regularPrice}) => {
       </div>
       
       <div className="flex flex-col gap-y-[10px]">
-        <h5 className="relative leading-[1]">
+        <h4 className="relative leading-[1]">
           {!imageLoaded ? (
             <>
               {city}, {country}
@@ -29,7 +29,7 @@ const Listing = ({images, title, location: {country, city}, regularPrice}) => {
           ) : (
             <span className="block w-[70%] h-[15px] bg-[#ddd] rounded-[4px]"></span>
           )}
-        </h5>
+        </h4>
         <p className="relative text-[#717171] leading-[1] line-clamp-1 text-ellipsis">
           {!imageLoaded ? (
             <>

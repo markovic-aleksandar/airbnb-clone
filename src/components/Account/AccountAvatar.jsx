@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import useValidate from '../../hooks/useValidate';
 import { updateAccount, updateAccountAvatar } from '../../functions/userFunctions';
 import MiniLoader from '../MiniLoader';
-import { UserAvatar, InputErrorIcon } from '../../constants/icons';
+import { UserAvatar, InputErrorIcon } from '../../constants';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { IoIosRemoveCircle } from 'react-icons/io';
 

@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOutUser } from '../../functions/authFunctions';
 import { TOGGLE_SIGNUP_MODAL, TOGGLE_SIGNIN_MODAL } from '../../redux/slices/authSlice';
+import { UserAvatar } from '../../constants';
 import { HiBars3 } from 'react-icons/hi2';
-import { UserAvatar } from '../../constants/icons';
 
 const HeaderUser = () => {
   const {currentUser} = useSelector(store => store.auth);

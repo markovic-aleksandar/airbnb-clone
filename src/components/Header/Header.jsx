@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import HeaderSearch from './HeaderSearch';
 import HeaderUser from './HeaderUser';
-import { Logo } from '../../constants/icons';
+import { Logo } from '../../constants';
 
 const Header = () => {
   return (
