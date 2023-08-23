@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { openSignUpModal, openSignInModal } from '../redux/features/auth/authActions';
+import { TOGGLE_SIGNUP_MODAL, TOGGLE_SIGNIN_MODAL } from '../redux/slices/authSlice';
 import { BiSearch } from 'react-icons/bi';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 
@@ -19,7 +19,7 @@ const MobileBar = () => {
       <button 
         type="button"
         className="flex flex-col items-center w-16 text-[10px] font-normal cursor-pointer"
-        onClick={() => openSignUpModal(dispatch)}
+        onClick={() => dispatch(TOGGLE_SIGNUP_MODAL(true))}
       >
         <HiOutlineUserCircle className="text-2xl text-[#b0b0b0]" />
         Sign Up
@@ -28,7 +28,7 @@ const MobileBar = () => {
       <button 
         type="button"
         className="flex flex-col items-center w-16 text-[10px] font-normal cursor-pointer"
-        onClick={() => openSignInModal(dispatch)}
+        onClick={() => dispatch(TOGGLE_SIGNIN_MODAL(true))}
       >
         <HiOutlineUserCircle className="text-2xl text-[#b0b0b0]" />
         Sign In

@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { signOutUser, openSignUpModal, openSignInModal } from '../../redux/features/auth/authActions';
+import { signOutUser } from '../../functions/authFunctions';
+import { TOGGLE_SIGNUP_MODAL, TOGGLE_SIGNIN_MODAL } from '../../redux/slices/authSlice';
 import { HiBars3 } from 'react-icons/hi2';
 import { UserAvatar } from '../../constants/icons';
 
 const HeaderUser = () => {
-  const [dropdownMenu, setDropdownMenu] = useState(false);
   const {currentUser} = useSelector(store => store.auth);
+  const [dropdownMenu, setDropdownMenu] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,13 +17,19 @@ const HeaderUser = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('click', e => {
-      const element = e.target;
 
+    // hide dropdown menu
+    const hideDropdown = e => {
+      const element = e.target;
       if (element.id !== 'dropdown-menu' && !element.closest('[data-target="dropdown-menu"]')) {
         setDropdownMenu(false);
       }
-    });
+    }
+
+    window.addEventListener('click', hideDropdown);
+
+    // return window.removeEventListener('click', hideDropdown);
+      
   }, [dropdownMenu]);
 
   return (
@@ -46,11 +53,11 @@ const HeaderUser = () => {
           <>
             <li 
               className="w-full px-4 py-[10px] cursor-pointer hover:bg-[#f7f7f7]"
-              onClick={() => openSignUpModal(dispatch)}  
+              onClick={() => dispatch(TOGGLE_SIGNUP_MODAL(true))}  
             >Sign Up</li>
             <li 
               className="w-full px-4 py-[10px] cursor-pointer hover:bg-[#f7f7f7]"
-              onClick={() => openSignInModal(dispatch)}  
+              onClick={() => dispatch(TOGGLE_SIGNIN_MODAL(true))}  
             >Sign In</li>
           </>
         ) : (

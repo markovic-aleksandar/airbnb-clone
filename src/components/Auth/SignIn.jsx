@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { signInUser, closeSignInModal } from '../../redux/features/auth/authActions';
+import { TOGGLE_SIGNIN_MODAL } from '../../redux/slices/authSlice';
+import { signInUser } from '../../functions/authFunctions';
 import useValidate from '../../hooks/useValidate';
 import Modal from '../Modal';
 import MiniLoader from '../MiniLoader';
@@ -18,7 +19,8 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const closeModal = () => {
-    closeSignInModal(dispatch, navigate);
+    dispatch(TOGGLE_SIGNIN_MODAL(false));
+    if (window.location.search === '?isSignIn') navigate('/');
   }
 
   const handleSignInUser = () => {

@@ -28,3 +28,10 @@ export const handleErrorMessage = message => {
       return message;
   }
 }
+
+// handle redux non-serializable value
+export const handleNonSerializablValue = prop => {
+  let propItem = prop.createdAt.seconds ? {...prop, createdAt: prop.createdAt.seconds * 1000} : {...prop, createdAt: Date.now()};
+
+  return propItem;
+}

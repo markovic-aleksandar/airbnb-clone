@@ -14,7 +14,7 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <button 
             type="button"
-            className="text-xs tracking-wide font-medium px-[14px] py-[6px] h-[42px] rounded-full hover:bg-[#f7f7f7]"  
+            className="text-sm tracking-wide font-medium px-[14px] py-[6px] h-[42px] rounded-full hover:bg-[#f7f7f7]"  
           >
             Airbnb your home
           </button>

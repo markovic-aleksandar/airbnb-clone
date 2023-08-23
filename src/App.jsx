@@ -1,29 +1,28 @@
 import { useEffect } from 'react';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { checkUserAuth, openSignInModal } from './redux/features/auth/authActions';
-import { Header, MobileBar, SignUp, SignIn } from './components';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { checkUserAuth } from './functions/authFunctions';
+import { TOGGLE_SIGNIN_MODAL } from './redux/slices/authSlice';
+import { Loader, Header, MobileBar, SignUp, SignIn } from './components';
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
-  const {currentUserLoading, signUpModal, signInModal} = useSelector(store => store.auth);
+  const {currentUserLoading, signUpModal, signInModal, currentUser} = useSelector(store => store.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {    
-    checkUserAuth(dispatch, navigate);
-  }, [dispatch, navigate]);
+    checkUserAuth(dispatch);
+  }, [dispatch]);
 
   useEffect(() => {
-    if (location.search.includes('isSignIn')) {
-      openSignInModal(dispatch)
+    if (location.search.includes('isSignIn') && !currentUser) {
+      dispatch(TOGGLE_SIGNIN_MODAL(true));
     }
-  }, [location.search, dispatch]);
+  }, [location.search, dispatch, currentUser]);
 
   if (currentUserLoading) {
-    return <h1>Loading....</h1>
+    return <Loader />
   }
 
   return (
@@ -32,8 +31,8 @@ const App = () => {
       <Outlet />
       <MobileBar />
       <ToastContainer position="bottom-center" theme="light" />
-      {signUpModal && <SignUp />}
-      {signInModal && <SignIn />}
+      {signUpModal && !currentUser && <SignUp />}
+      {signInModal && !currentUser && <SignIn />}
     </>
   )
 }

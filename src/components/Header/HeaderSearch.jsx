@@ -5,11 +5,11 @@ const HeaderSearch = () => {
     <div className="flex h-12 items-center pr-2 shadow-specbox border-[1px] border-[#ddd] rounded-full">
       <button 
         type="button"
-        className="text-sm font-normal pl-5 pr-3 border-r-[1px] border-[#ddd]"  
+        className="text-sm font-medium pl-5 pr-3 border-r-[1px] border-[#ddd]"  
       >Anywhere</button>
       <button 
         type="button"
-        className="text-sm font-normal px-3 border-r-[1px] border-[#ddd]"  
+        className="text-sm font-medium px-3 border-r-[1px] border-[#ddd]"  
       >Any week</button>
       <button 
         type="button"

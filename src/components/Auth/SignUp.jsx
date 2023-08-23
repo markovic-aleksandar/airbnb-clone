@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { closeSignUpModal, signUpUser } from '../../redux/features/auth/authActions';
+import { TOGGLE_SIGNUP_MODAL } from '../../redux/slices/authSlice';
+import { signUpUser } from '../../functions/authFunctions';
 import useValidate from '../../hooks/useValidate';
 import Modal from '../Modal';
 import MiniLoader from '../MiniLoader';
@@ -19,7 +20,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const closeModal = () => {
-    closeSignUpModal(dispatch);
+    dispatch(TOGGLE_SIGNUP_MODAL(false));
   }
 
   const handleSignUpUser = () => {

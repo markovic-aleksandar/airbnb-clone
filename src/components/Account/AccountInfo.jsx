@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateAccount } from '../../redux/features/auth/authActions';
+import { updateAccount } from '../../functions/userFunctions';
 import Modal from '../Modal';
 import MiniLoader from '../MiniLoader';
 import { InputErrorIcon } from '../../constants/icons';
@@ -24,14 +24,14 @@ const AccountInfo = () => {
   const handleSubmitDescription = async () => {
     if (userDescription.length > 450 || waitingProccess) return;
     setWaitingProccess(true);
-    await updateAccount({description: userDescription.trim()}, currentUser, dispatch, setWaitingProccess);
+    await updateAccount({description: userDescription.trim()}, dispatch, setWaitingProccess);
     aboutModal.current.querySelector('#close-modal-btn').click();
   }
 
   return (
     <>
       <div>
-        <h3 className="text-2xl mb-4">About you</h3>
+        <h2 className="text-2xl mb-4">About you</h2>
         <p className="text-base">This is where you can showcase and share information about yourself. Tell us your interests, hobbies, and any other details you would like to share. </p>
 
         <div className="py-6 px-4 mt-5 border border-dashed border-[#b0b0b0] rounded-xl">
@@ -94,7 +94,7 @@ const AccountInfo = () => {
       )}
       <hr className="my-10 border-t border-[#dddddd]" />
       <div>
-        <h3 className="text-2xl mb-4">Your past trips</h3>
+        <h2 className="text-2xl mb-4">Your past trips</h2>
         <p className="text-base">Show the destinations I’ve traveled to.</p>
 
         <div className="grid grid-cols-1 min-[450px]:grid-cols-2 sm:grid-cols-3 mt-5 gap-3">
