@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LikeIcon } from '../../constants';
 
-const Listing = ({images, title, location: {country, city}, regularPrice}) => {
+const Listing = ({id, images, title, location: {country, city}, regularPrice}) => {
   const [imageLoaded, setImageLoaded] = useState(true);
+  const navigate = useNavigate();
 
   return (
-    <article>
+    <article className="cursor-pointer" onClick={() => navigate(`listing/${id}`)}>
       <div className="relative mb-3 aspect-[20/19]">
         <img 
           src={images[0]}

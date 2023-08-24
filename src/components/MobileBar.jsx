@@ -7,7 +7,7 @@ const MobileBar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 w-full h-16 px-3 flex items-center justify-center gap-2 border-t border-t-[#ebebeb] z-10">
+    <div className="md:hidden fixed bottom-0 left-0 w-full h-16 px-3 flex items-center justify-center gap-[5%] border-t border-t-[#ebebeb] z-10">
       <button 
         type="button"
         className="flex flex-col items-center w-16 text-[10px] font-normal cursor-pointer"

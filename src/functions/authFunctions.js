@@ -31,12 +31,14 @@ export const checkUserAuth = async dispatch => {
         if (userSnap.exists()) {
           const currentUser = handleNonSerializablValue({...userSnap.data(), id: userSnap.id});
           dispatch(SET_CURRENT_USER(currentUser));
+          dispatch(TOGGLE_USER_LOADING(false));
         }
+      } else {
+        dispatch(TOGGLE_USER_LOADING(false));
       }
     })
-
+    
     unsub();
-    dispatch(TOGGLE_USER_LOADING(false));
   }
   catch(err) {
     console.log(err);

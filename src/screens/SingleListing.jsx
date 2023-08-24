@@ -1,23 +1,23 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { getSingleListing } from '../functions/listingsFunctions';
 // import { getSingleListing } from '../redux/features/listing/lisitngActions';
 import { Loader } from '../components';
 
 const SingleListing = () => {
+  const [listing, setListing] = useState(null);
+  const [waitingProcess, setWaitingProcess] = useState(true);
   const {id} = useParams();
-  // const {singleListingLoading, singleListing} = useSelector(store => store.listing);
-  const dispatch = useDispatch();
   
-  // useEffect(() => {
-  //   getSingleListing(id, dispatch);
-  // }, [id, dispatch]);
+  useEffect(() => {
+    getSingleListing(id, setListing, setWaitingProcess);
+  }, [id]);
 
-  // if (singleListingLoading) {
-  //   return <Loader />
-  // }
+  if (waitingProcess) {
+    return <Loader />
+  }
 
-  // console.log(singleListing);
+  console.log(listing);
 
   return (
     <h2>Single Lisitng</h2>

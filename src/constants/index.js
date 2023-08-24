@@ -3,7 +3,8 @@ import {
   Logo,
   UserAvatar,
   InputErrorIcon,
-  LikeIcon
+  LikeIcon,
+  FilterIcon
 } from './icons';
 
 export {
@@ -11,5 +12,6 @@ export {
   Logo,
   UserAvatar,
   InputErrorIcon,
-  LikeIcon
+  LikeIcon,
+  FilterIcon
 }

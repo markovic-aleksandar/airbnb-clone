@@ -2,7 +2,6 @@ import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 import { handleNonSerializablValue } from '../utils';
-import { toast } from 'react-toastify';
 
 // get specific listings
 export const getListings = async (category, setListings, setListingsLoading) => {
@@ -26,23 +25,23 @@ export const getListings = async (category, setListings, setListingsLoading) => 
 }
 
 // get single listing
-// export const getSingleListing = async (id, dispatch) => {
-//   dispatch(SHOW_SINGLE_LISTING_LOADING());
-//   try {
-//     // create listing ref
-//     const listingRef = doc(db, 'listings', id);
-//     // get listing from firestore
-//     const listingSnap = await getDoc(listingRef);
-//     if (listingSnap.exists()) {
-//       const currentListing = {...listingSnap.data(), id: listingSnap.id};
-//       dispatch(SET_SINGLE_LISTING(handleNonSerializablValue(currentListing)));
-//     }
-//   }
-//   catch(err) {
-//     // create toast message
-//     toast.error(err.code);
-//   }
-//   finally {
-//     dispatch(HIDE_SINGLE_LISTING_LOADING());
-//   }
-// }
+export const getSingleListing = async (id, setListing, setWaitingProcess) => {
+  try {
+    setWaitingProcess(true);
+    // create listing ref
+    const listingRef = doc(db, 'listings', id);
+    // get listing from firestore
+    const listingSnap = await getDoc(listingRef);
+    if (listingSnap.exists()) {
+      const currentListing = handleNonSerializablValue({...listingSnap.data(), id: listingSnap.id});
+      setListing(currentListing);
+    }
+  }
+  catch(err) {
+    // create toast message
+    console.log(err);
+  }
+  finally {
+    setWaitingProcess(false);
+  }
+}
