@@ -48,7 +48,7 @@ const HeaderUser = () => {
         )}
       </button>
 
-      <ul className={`${dropdownMenu ? 'block' : 'hidden'} absolute top-14 right-0 bg-white w-60 rounded-xl py-3 shadow-[0_2px_16px_rgba(0,0,0,0.12)]`}>
+      <ul className={`${dropdownMenu ? 'block' : 'hidden'} absolute top-14 right-0 bg-white w-60 rounded-xl py-3 shadow-[0_2px_16px_rgba(0,0,0,0.12)] z-50`}>
         {!currentUser ? (
           <>
             <li 

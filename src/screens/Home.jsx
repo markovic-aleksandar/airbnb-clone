@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getListings } from '../functions/listingsFunctions';
-import { Loader, Listings } from '../components';
+import { Loader, Header, Listings } from '../components';
 
 const Home = () => {
   const [listings, setListings] = useState([]);
@@ -17,9 +17,12 @@ const Home = () => {
   // if list is empty
 
   return (
-    <main>
-      <Listings listings={listings} />
-    </main>
+    <>
+      <Header maxWidth={1450} />
+      <main className="py-6 px-5 md:px-10 xl:px-20">
+        <Listings listings={listings} />
+      </main>
+    </>
   )
 }
 

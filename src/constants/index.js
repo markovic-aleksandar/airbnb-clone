@@ -4,7 +4,8 @@ import {
   UserAvatar,
   InputErrorIcon,
   LikeIcon,
-  FilterIcon
+  FilterIcon,
+  DotsSquareIcons
 } from './icons';
 
 export {
@@ -13,5 +14,6 @@ export {
   UserAvatar,
   InputErrorIcon,
   LikeIcon,
-  FilterIcon
+  FilterIcon,
+  DotsSquareIcons
 }

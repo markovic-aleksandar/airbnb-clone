@@ -8,6 +8,11 @@ import AccountInfo from './Account/AccountInfo';
 import Listings from './Listing/Listings';
 import ProtectedRoute from './ProtectedRoute';
 
+// single listing components
+import ListingTitle from './SingleListing/ListingTitle';
+import ListingImagesDesktop from './SingleListing/ListingImagesDesktop';
+import ListingImagesModal from './SingleListing/ListingImagesModal';
+import ListingSliderModal from './SingleListing/ListingSliderModal';
 
 export {
   Loader,
@@ -18,5 +23,9 @@ export {
   AccountAvatar,
   AccountInfo,
   Listings,
-  ProtectedRoute
+  ProtectedRoute,
+  ListingTitle,
+  ListingImagesDesktop,
+  ListingImagesModal,
+  ListingSliderModal
 };

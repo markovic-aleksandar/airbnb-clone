@@ -41,6 +41,11 @@ h4 {
   font-size: 15px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 input, textarea {
   display: block;
   width: 100%;
@@ -53,6 +58,11 @@ input, textarea {
 
 textarea {
   padding: 10px;
+}
+
+button {
+  font-family: 'Rubik', sans-serif;
+  line-height: 1;
 }
 
 .form-control {
@@ -118,6 +128,14 @@ textarea {
 
 .fade-out {
   animation: fadeOut 500ms ease-in-out;
+}
+
+.opacity-image-in {
+  animation: opacityImageIn 300ms forwards ease-in-out;
+}
+
+.fade-in-content {
+  animation: fadeInContent 300ms 600ms forwards ease-in-out;
 }
 
 .loader-holder {
@@ -190,6 +208,24 @@ textarea {
   to {
     opacity: 0;
     transform: translateY(200px);
+  }
+}
+
+@keyframes opacityImageIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity:  0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

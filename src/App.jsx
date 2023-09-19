@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { checkUserAuth } from './functions/authFunctions';
-import { Loader, Header, MobileBar, SignUp, SignIn } from './components';
+import { Loader, MobileBar, SignUp, SignIn } from './components';
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
@@ -19,12 +19,11 @@ const App = () => {
   
   return (
     <>
-      <Header />
       <Outlet />
       <MobileBar />
-      <ToastContainer position="bottom-center" theme="light" />
       {signUpModal && !currentUser && <SignUp />}
       {signInModal && !currentUser && <SignIn />}
+      <ToastContainer position="bottom-center" theme="light" />
     </>
   )
 }
