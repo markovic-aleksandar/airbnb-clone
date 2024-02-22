@@ -1,12 +1,14 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
+import { SingleListingContext } from '.';
 import { MdOutlineClose } from 'react-icons/md';
 import { FiShare, FiHeart, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const ListingSliderModal = ({images, handleCloseModal}) => {
+const ListingSliderModal = () => {
   const [slideCount, setSlideCount] = useState(0);
   const [isAnimate, setIsAnimate] = useState(false);
   const slideModal = useRef(null);
   const slideContent = useRef(null);
+  const {listing: {images}, handleCloseModal} = useContext(SingleListingContext);
 
   // handle change slide with animation
   const handleChangeSlide = type => {
@@ -34,7 +36,7 @@ const ListingSliderModal = ({images, handleCloseModal}) => {
   }, [slideCount]);
 
   return (
-    <div ref={slideModal} className="fixed top-0 left-0 w-full h-full bg-white fade-in">
+    <div ref={slideModal} className="fixed top-0 left-0 w-full h-full bg-white fade-in z-50">
       <div className="absolute top-0 left-0 w-full h-full bg-black opacity-0 fade-in-content">
         <header className="flex items-center justify-between p-6 md:p-10">
           <button 

@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        'specbox': '0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05)'
+        'specbox': '0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05)',
+        'smallCircle': '0 0 0 1px transparent, 0 0 0 4px transparent, 0 2px 4px rgba(0,0,0,0.18)'
       },
       backgroundImage: {
         'buttonGradient': 'radial-gradient( circle at center,#FF385C 0%,#e61e4d 27.5%,#e31c5f 40%,#d70466 57.5%,#bd1e59 75%,#bd1e59 100% )'

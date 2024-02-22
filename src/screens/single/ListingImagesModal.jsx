@@ -1,13 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useContext } from 'react';
+import { SingleListingContext } from '.';
 import Masonry from 'react-responsive-masonry';
 import { FiChevronLeft, FiShare, FiHeart } from 'react-icons/fi';
-import ButtonImage from '../ButtonImage';
+import ButtonImage from '../../components/ButtonImage';
 
-const ListingImagesModal = ({images, handleOpenModal, handleCloseModal}) => {
+const ListingImagesModal = () => {
   const modal = useRef(null);
+  const {listing: {images}, handleOpenModal, handleCloseModal} = useContext(SingleListingContext);
 
   return (
-    <div ref={modal} className="fixed top-0 left-0 w-full h-full bg-white flex flex-col fade-in">
+    <div ref={modal} className="fixed top-0 left-0 w-full h-full bg-white flex flex-col fade-in z-50">
       <header className="flex items-center justify-between flex-[0_0_60px] px-6">
         <button 
           className="w-8 h-8 flex items-center justify-center hover:bg-[#f7f7f7] rounded-full"

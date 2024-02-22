@@ -1,6 +1,6 @@
 const ListingTitle = ({title, location}) => {
   const {address, city, country} = location;
-  
+
   return (
     <div>
       <h2 className="mb-3">{title}</h2>

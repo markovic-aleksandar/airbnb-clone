@@ -9,10 +9,13 @@ import Listings from './Listing/Listings';
 import ProtectedRoute from './ProtectedRoute';
 
 // single listing components
+import ListingHeader from './SingleListing/ListingHeader';
 import ListingTitle from './SingleListing/ListingTitle';
+import ListingMain from './SingleListing/ListingMain';
 import ListingImagesDesktop from './SingleListing/ListingImagesDesktop';
-import ListingImagesModal from './SingleListing/ListingImagesModal';
-import ListingSliderModal from './SingleListing/ListingSliderModal';
+import ListingSliderMobile from './SingleListing/ListingSliderMobile';
+// import ListingImagesModal from '../screens/single/ListingImagesModal';
+// import ListingSliderModal from '../screens/single/ListingSliderModal';
 
 export {
   Loader,
@@ -24,8 +27,11 @@ export {
   AccountInfo,
   Listings,
   ProtectedRoute,
+  ListingHeader,
   ListingTitle,
+  ListingMain,
   ListingImagesDesktop,
-  ListingImagesModal,
-  ListingSliderModal
+  ListingSliderMobile,
+  // ListingImagesModal,
+  // ListingSliderModal
 };
