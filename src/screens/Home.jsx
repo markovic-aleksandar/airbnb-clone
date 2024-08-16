@@ -7,7 +7,7 @@ const Home = () => {
   const [listingsLoading, setListingsLoading] = useState(true);
 
   useEffect(() => {
-    getListings('design', setListings, setListingsLoading);
+    getListings('beach', setListings, setListingsLoading);
   }, []);
 
   if (listingsLoading) {

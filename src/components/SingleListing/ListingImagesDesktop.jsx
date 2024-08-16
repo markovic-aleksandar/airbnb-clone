@@ -3,9 +3,9 @@ import { DotsSquareIcons } from '../../constants';
 
 const ListingImagesDesktop = ({images, handleOpenModal}) => {
   return (
-    <section style={{height: 'calc(60vh - 64px)'}} className="relative grid grid-cols-2 gap-x-2 mt-6 rounded-xl overflow-hidden ">
+    <section style={{height: 'calc(60vh - 64px)'}} className="relative grid grid-cols-2 auto-rows-fr gap-x-2 mt-6 rounded-xl overflow-hidden ">
       <ButtonImage imgURL={images[0]} handleAction={() => handleOpenModal('images')} />
-      <article className="grid grid-cols-2 gap-2">
+      <article className="grid grid-cols-2 auto-rows-fr gap-2">
         {images.slice(1, 5).map((image, index) => (
           <ButtonImage key={index} imgURL={image} handleAction={() => handleOpenModal('images')} />
         ))}

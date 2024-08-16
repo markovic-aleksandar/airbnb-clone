@@ -65,13 +65,13 @@ const HeaderUser = () => {
             <li>
               <Link 
                 to="/account/trips"
-                className="w-full block font-medium px-4 py-[10px] cursor-pointer hover:bg-[#f7f7f7]"  
+                className="font-medium w-full block px-4 py-[10px] cursor-pointer hover:bg-[#f7f7f7]"  
               >Trips</Link>
             </li>
             <li className="pb-1 border-b border-b-[#ebebeb]">
               <Link 
                 to="/account/wishlists"
-                className="w-full block font-medium px-4 py-[10px] cursor-pointer hover:bg-[#f7f7f7]"  
+                className="font-medium w-full block px-4 py-[10px] cursor-pointer hover:bg-[#f7f7f7]"  
               >Wishlists</Link>
             </li>
             <li className="pt-1">
