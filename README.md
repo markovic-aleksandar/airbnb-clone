@@ -3,10 +3,18 @@
 [![License](https://img.shields.io/github/license/markovic-aleksandar/airbnb-clone.svg)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/markovic-aleksandar/airbnb-clone.svg)](https://github.com/markovic-aleksandar/airbnb-clone/issues)
 [![GitHub stars](https://img.shields.io/github/stars/markovic-aleksandar/airbnb-clone.svg)](https://github.com/markovic-aleksandar/airbnb-clone/stargazers)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1038e525-81ca-4f6b-b981-ef9cb9fc9bed/deploy-status)](https://app.netlify.com/sites/airnbnb-clone/deploys)
+
 
 ## Overview
 
 The **Airbnb Clone** project is a work-in-progress web application that replicates some of the core functionalities of Airbnb. Built using React.js for the frontend and Firebase as the backend service, this project serves as a portfolio piece to demonstrate proficiency in modern web development practices, including user authentication, data management, and responsive UI design.
+
+## Demo
+
+Check out the live demo of the Airbnb Clone application:
+
+[Live Demo on Netlify](https://airnbnb-clone.netlify.app/)
 
 ### Current Features
 

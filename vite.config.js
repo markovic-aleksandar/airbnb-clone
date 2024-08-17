@@ -6,17 +6,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // https://vitejs.dev/config/
-export default defineConfig(({command}) => {
-  const isDevelopment = command === 'serve';
-  
-  const envConfig = isDevelopment ? ({
-    server: { port: 3000 }
-  }) : ({
-    base: '/airbnb-clone/'
-  });
-
-  return {
-    plugins: [react()],
-    ...envConfig
+export default defineConfig({
+  plugins: [react()],
+  base: '/',
+  server: {
+    port: 3000
   }
-})
+});
