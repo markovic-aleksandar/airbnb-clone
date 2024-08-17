@@ -12,7 +12,7 @@ The **Airbnb Clone** project is a work-in-progress web application that replicat
 
 Check out the live demo of the Airbnb Clone application:
 
-[Live Demo on Netlify](https://airnbnb-clone.netlify.app/){:target="_blank"}
+[Live Demo on Netlify](https://airnbnb-clone.netlify.app/)
 
 ### Current Features
 
@@ -66,5 +66,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-- **GitHub:** [markovic-aleksandar](https://github.com/markovic-aleksandar){:target="_blank"}
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/aleksandar-markovic-691882203/){:target="_blank"}
+- **GitHub:** [markovic-aleksandar](https://github.com/markovic-aleksandar)
+- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/aleksandar-markovic-691882203/)
